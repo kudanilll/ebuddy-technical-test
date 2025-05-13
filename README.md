@@ -1,4 +1,4 @@
-# Turborepo starter
+# EBUDDY Technical Test - Achmad Daniel Syahputra
 
 This Turborepo starter is maintained by the Turborepo core team.
 
