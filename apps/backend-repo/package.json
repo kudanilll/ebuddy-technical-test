@@ -1,0 +1,28 @@
+{
+  "name": "backend-repo",
+  "version": "1.0.0",
+  "description": "EBUDDY Technical Test Backend",
+  "license": "ISC",
+  "author": "Achmad Daniel Syahputra",
+  "main": "dist/core/app.js",
+  "scripts": {
+    "build": "tsc",
+    "start": "node dist/core/app.js",
+    "dev": "nodemon src/core/app.ts",
+    "emulate": "firebase emulators:start --only functions"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "firebase": "^11.7.1"
+  },
+  "devDependencies": {
+    "@types/cors": "^2.8.17",
+    "@types/express": "^4.17.21",
+    "@types/node": "^20.9.4",
+    "ts-node": "^10.9.2",
+    "ts-node-dev": "^2.0.0",
+    "typescript": "^5.3.2"
+  }
+}
