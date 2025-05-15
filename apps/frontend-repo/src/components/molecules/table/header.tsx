@@ -7,6 +7,7 @@ import {
 import { Typography } from "@mui/material";
 
 const columns = [
+  { label: "ID", align: "left" },
   { label: "Name", align: "left" },
   { label: "Email", align: "left" },
   { label: "Created At", align: "left" },

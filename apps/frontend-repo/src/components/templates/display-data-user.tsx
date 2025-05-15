@@ -1,9 +1,8 @@
 "use client";
 
-import { Typography, Box, Button } from "@mui/material";
+import { Typography } from "@mui/material";
 import { useEffect, useState } from "react";
 import { User } from "@repo/shared";
-import AddIcon from "@mui/icons-material/Add";
 import DashboardCard from "@/components/atoms/card/dashboard";
 import UserTable from "@/components/organisms/user-table";
 
@@ -34,19 +33,6 @@ export default function DisplayDataUser() {
         Information User
       </Typography>
       <UserTable data={userData} />
-      <Box py={2}>
-        <Button
-          disableElevation
-          variant="contained"
-          endIcon={<AddIcon />}
-          sx={{
-            minWidth: 120,
-          }}
-          onClick={() => {}}
-        >
-          ADD USER
-        </Button>
-      </Box>
     </DashboardCard>
   );
 }

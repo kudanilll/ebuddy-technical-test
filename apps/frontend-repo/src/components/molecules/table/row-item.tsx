@@ -3,9 +3,20 @@ import { User } from "@repo/shared";
 import { convertTimestampToDateString } from "@/utils/date";
 import TableActions from "./actions";
 
-export default function TableRowItem({ item }: { item: User }) {
+export default function TableRowItem({
+  item,
+  onEdit,
+}: {
+  item: User;
+  onEdit: (updatedUser: User) => void;
+}) {
   return (
     <TableRow hover key={String(item.id)}>
+      <TableCell>
+        <Typography sx={{ fontSize: "15px", fontWeight: "500" }}>
+          {item.id}
+        </Typography>
+      </TableCell>
       <TableCell>
         <Typography sx={{ fontSize: "15px", fontWeight: "500" }}>
           {item.name}
@@ -27,7 +38,7 @@ export default function TableRowItem({ item }: { item: User }) {
         </Typography>
       </TableCell>
       <TableCell align="center">
-        <TableActions />
+        <TableActions user={item} onEdit={onEdit} />
       </TableCell>
     </TableRow>
   );

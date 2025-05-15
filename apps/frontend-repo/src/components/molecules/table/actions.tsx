@@ -1,16 +1,21 @@
 import { IconButton } from "@mui/material";
+import { User } from "@repo/shared";
 import EditIcon from "@mui/icons-material/Edit";
-import DeleteIcon from "@mui/icons-material/Delete";
+import EditUser from "@/components/organisms/edit-user";
 
-export default function TableActions() {
+interface TableActionsProps {
+  user: User;
+  onEdit: (updatedUser: User) => void;
+}
+
+export default function TableActions({ user, onEdit }: TableActionsProps) {
   return (
     <>
-      <IconButton>
-        <EditIcon />
-      </IconButton>
-      <IconButton>
-        <DeleteIcon />
-      </IconButton>
+      <EditUser user={user} onSave={onEdit}>
+        <IconButton aria-label="edit">
+          <EditIcon />
+        </IconButton>
+      </EditUser>
     </>
   );
 }

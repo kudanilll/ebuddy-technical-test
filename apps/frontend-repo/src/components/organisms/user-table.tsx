@@ -45,6 +45,10 @@ export default function UserTable({ data }: { data: User[] }) {
     setPage(0);
   }
 
+  const handleEditUser = (updatedUser: User) => {
+    console.log("User to update:", updatedUser);
+  };
+
   return (
     <>
       <SearchInput value={searchQuery} onChange={setSearchQuery} />
@@ -73,7 +77,11 @@ export default function UserTable({ data }: { data: User[] }) {
               {filteredData
                 .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
                 .map((item) => (
-                  <TableRowItem key={item.id} item={item} />
+                  <TableRowItem
+                    key={item.id}
+                    item={item}
+                    onEdit={handleEditUser}
+                  />
                 ))}
               {emptyRows > 0 && (
                 <TableRow style={{ height: 53 * emptyRows }}>
