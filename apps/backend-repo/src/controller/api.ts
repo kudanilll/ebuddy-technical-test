@@ -4,7 +4,7 @@ import {
   getUserData,
   updateUserData,
 } from "../repository/userCollection";
-import { User } from "../entities/user";
+import { User } from "@repo/shared";
 
 export const fetchAllUserData = async (req: Request, res: Response) => {
   try {

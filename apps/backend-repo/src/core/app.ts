@@ -2,6 +2,8 @@ import express from "express";
 import cors from "cors";
 import bodyParser from "body-parser";
 import userRoutes from "../routes/userRoutes";
+import dotenv from "dotenv";
+dotenv.config();
 
 const app = express();
 
@@ -18,11 +20,11 @@ app.use(
     err: any,
     req: express.Request,
     res: express.Response,
-    next: express.NextFunction,
+    next: express.NextFunction
   ) => {
     console.error(err.stack);
     res.status(500).json({ error: "Something went wrong!" });
-  },
+  }
 );
 
 const PORT = process.env.PORT || 8000;

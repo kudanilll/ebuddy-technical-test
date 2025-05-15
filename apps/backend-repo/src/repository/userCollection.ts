@@ -1,5 +1,5 @@
+import { User } from "@repo/shared";
 import { db } from "../config/firebaseConfig";
-import { User } from "../entities/user";
 import {
   collection,
   doc,
@@ -8,11 +8,11 @@ import {
   updateDoc,
 } from "firebase/firestore";
 
-const COLLECTION_NAME = "USERS";
+const collectionName = "USERS";
 
 export const getAllUsers = async (): Promise<User[]> => {
   try {
-    const usersCollection = collection(db, COLLECTION_NAME);
+    const usersCollection = collection(db, collectionName);
     const snapshot = await getDocs(usersCollection);
 
     const users: User[] = [];
@@ -31,7 +31,7 @@ export const getAllUsers = async (): Promise<User[]> => {
 };
 
 export const getUserData = async (userId: string): Promise<User | null> => {
-  const userRef = doc(db, COLLECTION_NAME, userId);
+  const userRef = doc(db, collectionName, userId);
   const userSnap = await getDoc(userRef);
 
   if (userSnap.exists()) {
@@ -44,7 +44,7 @@ export const updateUserData = async (
   userId: string,
   userData: Partial<User>
 ): Promise<void> => {
-  const userRef = doc(db, COLLECTION_NAME, userId);
+  const userRef = doc(db, collectionName, userId);
   await updateDoc(userRef, {
     ...userData,
     updatedAt: new Date(),

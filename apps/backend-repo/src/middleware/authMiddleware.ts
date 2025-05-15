@@ -1,7 +1,6 @@
 import { Request, Response, NextFunction } from "express";
 import dotenv from "dotenv";
 dotenv.config();
-
 declare global {
   namespace Express {
     interface Request {
@@ -18,8 +17,8 @@ export const authMiddleware = async (
   try {
     const apiKey = process.env.FIREBASE_API_KEY;
     if (!apiKey) {
-      console.error(
-        "'FIREBASE_API_KEY' is not configured in environment variables"
+      console.log(
+        "'FIREBASE_API_KEY' is not configured in shared repo environment variables"
       );
       return res
         .status(500)
